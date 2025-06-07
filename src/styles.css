@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+h1 {
+    color: black; 
+    transition: color 0.3s ease; 
+  }
+  
+  h1.disabled {
+    color: gray; 
+  }
+  
+  h1:not(.disabled):hover {
+    color: blue; /
+  }

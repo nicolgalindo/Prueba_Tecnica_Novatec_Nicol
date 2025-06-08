@@ -1,0 +1,28 @@
+
+<div class="container-main">
+<div class="marketplace">
+  <h1>Marketplace</h1>
+
+</div>
+<div>
+  <input
+    type="text"
+    placeholder="Buscar producto por título"
+    [(ngModel)]="searchTerm"
+  />
+  <button (click)="searchProducts()">Buscar</button>
+</div>
+
+<div *ngIf="filteredProducts.length > 0; else noResults" class="filter">
+  <div *ngFor="let product of filteredProducts" class="filter-consult">
+    <img [src]="product.images[0]" alt="Producto" width="150" />
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.description }}</p>
+  </div>
+</div>
+<ng-template #noResults>
+  <p>No se encontraron productos.</p>
+</ng-template>
+
+
+ </div>

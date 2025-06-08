@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+h1 {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+h1.disabled {
+  color: gray;
+}
+
+h1:not(.disabled):hover {
+  color: blue;
+}
+
+.items-center {
+  align-items: center;
+}
+
+
+.topbar {
+  background-color: #faf8f8;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  height: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  max-width: 1920;
+}
+
+
+.logo {
+  color: #3064d6;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.icon-svg {
+  width: 2.875rem;
+  height: 2.875rem;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.filter-consult {
+
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 220px;
+}
+
+.container-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  margin-top: 100px;
+  margin-left: 20px;
+}

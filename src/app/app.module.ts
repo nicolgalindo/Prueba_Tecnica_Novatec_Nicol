@@ -8,7 +8,6 @@ import { MarketplaceComponent } from './components/marketplace/components/market
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,

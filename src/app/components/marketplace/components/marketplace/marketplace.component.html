@@ -1,28 +1,59 @@
-
 <div class="container-main">
-<div class="marketplace">
-  <h1>Marketplace</h1>
+  <div class="marketplace-layout">
 
-</div>
-<div>
-  <input
-    type="text"
-    placeholder="Buscar producto por título"
-    [(ngModel)]="searchTerm"
-  />
-  <button (click)="searchProducts()">Buscar</button>
-</div>
 
-<div *ngIf="filteredProducts.length > 0; else noResults" class="filter">
-  <div *ngFor="let product of filteredProducts" class="filter-consult">
-    <img [src]="product.images[0]" alt="Producto" width="150" />
-    <h3>{{ product.title }}</h3>
-    <p>{{ product.description }}</p>
+    <aside class="categories-menu">
+      <h2>Categorias</h2>
+      <ul>
+        <li *ngFor="let category of categories">
+          <button class="category-btn" (click)="searchCategory(category.id)">
+            <img [src]="category.image" alt="Categoría" width="40" height="40" />
+            <span>{{ category.name }}</span>
+          </button>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="products-content">
+      <h1>Marketplace Bank INC</h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Buscar producto por título"
+          [(ngModel)]="searchTerm"
+        />
+        <button (click)="searchProducts()">Buscar</button>
+      </div>
+
+      <div *ngIf="filteredProducts.length > 0; else noResults" class="filter">
+        <div *ngFor="let product of filteredProducts" class="filter-consult">
+          <img [src]="product.images[0]" alt="Producto" width="150" />
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+          <button (click)="addToCart(product)">Agregar al carrito</button>
+        </div>
+      </div>
+      <ng-template #noResults>
+        <p>No se encontraron productos.</p>
+      </ng-template>
+    </main>
+
+<aside class="cart-menu">
+  <img src="./../../../../../assets/iconos/carrito.svg" alt="Logo" class="icon-svg">
+  <div *ngIf="market.length === 0">El carrito está vacio.</div>
+  <div *ngIf="market.length > 0">
+    <p>Total de productos: {{ cartCount }}</p>
+    <p>Valor total: ${{ cartTotal }}</p>
+    <button (click)="download()">Descargar CSV</button>
+  </div>
+  <ul>
+    <li *ngFor="let item of market; let i = index">
+      <img [src]="item.product.images[0]" alt="Producto" width="40" />
+      {{ item.product.title }} (x{{ item.quantity }})
+      <button (click)="removeFromCart(i)">Quitar</button>
+    </li>
+  </ul>
+</aside>
+
   </div>
 </div>
-<ng-template #noResults>
-  <p>No se encontraron productos.</p>
-</ng-template>
-
-
- </div>

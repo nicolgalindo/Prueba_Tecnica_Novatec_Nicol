@@ -28,3 +28,8 @@ export interface Categories {
   creationAt: string;
   updatedAt: string;
 }
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}

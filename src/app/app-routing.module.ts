@@ -4,7 +4,7 @@ import { MarketplaceComponent } from './components/marketplace/components/market
 
 const routes: Routes = [
   {
-    path:'marketplace',
+    path:'',
     component: MarketplaceComponent
   },
 ];
